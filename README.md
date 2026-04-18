@@ -2,24 +2,24 @@
 
 A production-ready Dockerized Python application demonstrating multi-container orchestration, reverse proxy integration, and persistent storage.
 
-## 🚀 Tech Stack
+## Tech Stack
 - **Backend:** Python 3.14 (Flask + Gunicorn)
 - **Proxy:** Nginx (Reverse Proxy)
 - **Data Store:** Redis (with Append-Only persistence)
 - **CI/CD:** GitHub Actions
 
-## 🏗️ Architecture
+## Architecture
 - **Nginx:** Listens on port 80 and proxies traffic to the Flask app.
 - **Web (Flask):** Handles requests and communicates with Redis via an internal Docker network.
 - **Redis:** Stores hit counts in a named volume to ensure data survives container restarts.
 
-## 🛠️ Features
+## Features
 - **Multi-stage Builds:** Optimized Docker image size using Python 3.14-slim.
 - **Security:** Runs as a non-privileged `appuser`.
 - **Health Checks:** Ensures the web service only starts once Redis is ready.
 - **Persistence:** Redis data is mapped to a local volume.
 
-## 🚦 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Docker Desktop installed
@@ -38,5 +38,5 @@ A production-ready Dockerized Python application demonstrating multi-container o
 3. Access the application:
    Open http://localhost in your browser.
 
-## 🧪 Running Tests
+## Running Tests
 Check container health: `docker-compose ps`
