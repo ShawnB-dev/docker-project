@@ -3,6 +3,7 @@ services:
     build: .
     volumes:
       - .:/home/appuser/app
+      - app_logs:/home/appuser/app/logs
     environment:
       - FLASK_ENV=development
       - REDIS_HOST=redis
@@ -26,6 +27,16 @@ services:
       web:
         condition: service_healthy
 
+  honeypot:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    command: ["python", "honeypot.py"]
+    expose:
+      - "8080"
+    volumes:
+      - app_logs:/home/appuser/app/logs
+
   redis:
     image: "redis:alpine"
     restart: always
@@ -39,3 +50,4 @@ services:
 
 volumes:
   redis_data:
+  app_logs:

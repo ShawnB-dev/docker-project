@@ -1,0 +1,6 @@
+Timestamp,Attack Type,Client IP,Path/Target,Extra Info
+"2026-04-18 14:35:19,540",BRUTE FORCE,IP: 172.18.0.1,Path: /admin,Attempt: ad:ad,"UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+"2026-04-18 14:37:27,182",SCAN,IP: 172.18.0.1,Path: /admin,"UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+"2026-04-18 14:38:14,011",BRUTE FORCE,IP: 172.18.0.1,Path: /admin,Attempt: ad:ad,"UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+"2026-04-18 14:38:18,491",SCAN,IP: 172.18.0.1,Path: /admin,"UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+"2026-04-18 14:44:56,272",SCAN,IP: 172.18.0.1,Path: /admin,"UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"

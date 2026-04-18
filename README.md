@@ -1,4 +1,4 @@
-# Distributed Visitor Counter with Nginx & Redis
+# Docker and Honeypot Implementation Project
 
 A production-ready Dockerized Python application demonstrating multi-container orchestration, reverse proxy integration, and persistent storage.
 
