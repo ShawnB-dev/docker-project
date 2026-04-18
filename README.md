@@ -12,6 +12,21 @@ A production-ready Dockerized Python application demonstrating multi-container o
 - **Nginx:** Listens on port 80 and proxies traffic to the Flask app.
 - **Web (Flask):** Handles requests and communicates with Redis via an internal Docker network.
 - **Redis:** Stores hit counts in a named volume to ensure data survives container restarts.
+- **Honeypot:** Decoy service that traps and logs malicious activities.
+
+## Honeypot Features
+- **Decoy Admin Portal:** A realistic, dark-themed login interface designed to bait automated scanners and brute-force bots.
+- **Pattern-Based Trapping:** Nginx identifies and redirects high-risk paths (`/admin`, `.env`, `phpmyadmin`, etc.) to the honeypot.
+- **Credential Harvesting:** Captures attempted usernames and passwords from brute-force attempts.
+- **Email Decoy:** A "Forgot Password" workflow that harvests email addresses and validates inputs via RFC 5322 compliant regex.
+- **Sophisticated Logging:** Distinguishes between scanning (GET), brute-force (POST), and malformed inputs to provide clear threat intelligence.
+- **CLI Intelligence:** A dedicated utility (`cli.py`) to export captured logs into structured Excel or CSV reports.
+
+## How it Works
+1. **Interception:** The Nginx reverse proxy monitors incoming traffic. It uses regular expression matching to detect requests aimed at common vulnerability targets (e.g., WordPress login pages or exposed Git directories).
+2. **Redirection:** When a signature is matched, Nginx silently proxies the request to the `honeypot` container. The attacker is never aware they have left the main application network.
+3. **Engagement:** The honeypot serves a convincing UI and provides realistic feedback. For example, it returns a `401 Unauthorized` status code on login failure to encourage bots to continue their brute-force attempts, allowing for more data collection.
+4. **Persistence & Analysis:** All alerts are written to a shared volume (`app_logs`). This data can be analyzed in real-time via `docker-compose logs` or exported using the CLI tool for offline forensics.
 
 ## Features
 - **Multi-stage Builds:** Optimized Docker image size using Python 3.14-slim.
